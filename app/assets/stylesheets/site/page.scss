@@ -1,0 +1,428 @@
+@charset "utf-8";
+
+/*Global csses*/
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  margin: 0 auto;
+  font-size: 12px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  color: #000000;
+  background: #8B9090 image-url("bgBody.jpg") no-repeat top center;
+}
+
+h1, h2, h3, h4, h5, h6, input, select, textarea, ol, dl, ul, li, dt, dd, form {
+  margin: 0;
+  padding: 0;
+}
+
+fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+img {
+  border: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.clear {
+  &:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+  zoom: 1;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.cl {
+  clear: both;
+  height: 1px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.sepline {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0 35px 0;
+}
+
+h1 {
+  color: #191919;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.2em;
+}
+
+h2 {
+  font-size: 11px;
+  color: #fff;
+  font-weight: normal;
+  background-color: #596565;
+  text-align: right;
+  padding: 10px 15px;
+}
+
+h3 {
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 18px;
+}
+
+h4 {
+  font-size: 11px;
+  padding: 15px 0 5px 0;
+  background: image-url("bgcontentsepline.gif") repeat-x bottom left;
+}
+
+h5 {
+  font-size: 11px;
+  font-weight: bold;
+  padding-top: 15px;
+}
+
+/*Main classes*/
+
+#page {
+  width: 912px;
+  margin: 0 auto;
+}
+
+#top {
+  width: 100%;
+  margin-top: 70px;
+  height: 154px;
+  background-color: #ffffff;
+}
+
+/*Navigation*/
+
+.navigation {
+  width: 100%;
+  height: 52px;
+  background: #596565;
+  ul {
+    float: right;
+    padding: 25px 15px 0 0;
+  }
+  li {
+    float: left;
+    line-height: 20px;
+    padding: 0 20px;
+    font-size: 11px;
+    a {
+      color: #fff;
+      text-decoration: none;
+      &:hover {
+        color: #990000;
+        text-decoration: underline;
+      }
+      &.current {
+        color: #2f400d;
+        text-decoration: underline;
+      }
+    }
+  }
+}
+
+/*Header*/
+
+#header {
+  width: 912px;
+  height: 154px;
+  margin: 0 auto;
+  .company {
+    position: relative;
+    padding: 65px 0 0 0;
+    width: 450px;
+    font-size: 31px;
+    color: #283131;
+    font-weight: bold;
+    line-height: 1.1em;
+    a {
+      color: #283131;
+      text-decoration: none;
+    }
+    img {
+      position: absolute;
+      top: 0px;
+      left: 0px;
+    }
+  }
+}
+
+/*Callbox*/
+
+.callbox {
+  width: 242px;
+  height: 160px;
+  background: #accc6d image-url("bgCallbox.jpg") no-repeat top left;
+  text-align: center;
+  padding: 25px 0 0 0;
+  font: bold 22px Arial, Helvetica, sans-serif;
+  color: #2f400d;
+  line-height: 1.5em;
+  strong {
+    display: block;
+  }
+  span {
+    display: block;
+    width: 190px;
+    margin: 0 auto;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+  }
+  a {
+    font-size: 10px;
+    font-weight: normal;
+    color: #2f400d;
+  }
+}
+
+/*Content*/
+
+#content {
+  width: 100%;
+  margin-top: 14px;
+  padding-bottom: 50px;
+  .mainbox {
+    float: left;
+    background-color: #fff;
+    width: 659px;
+    line-height: 1.3em;
+  }
+  .sidebar {
+    float: right;
+    width: 242px;
+    padding-top: 16px;
+  }
+  .staticimg {
+    float: right;
+    width: 200px;
+    padding: 15px 0 0 10px;
+    img {
+      width: 200px;
+    }
+  }
+}
+
+/*Contactbox*/
+
+.contactbox {
+  width: 288px;
+  padding: 15px 0;
+  margin: 0 auto;
+  #map {
+    width: 272px;
+    height: 193px;
+    overflow: hidden;
+    padding: 6px;
+    background: image-url("bgmap.gif") no-repeat;
+    iframe {
+      width: 272px;
+      height: 193px;
+    }
+  }
+  dl {
+    color: #333;
+    padding: 25px 5px 0;
+    text-align: center;
+    dt {
+      font-size: 12px;
+      font-weight: bold;
+      color: #191919;
+    }
+    dd {
+      font-size: 10px;
+      color: #505050;
+      font-family: Arial, Helvetica, sans-serif;
+      a {
+        color: #333;
+      }
+      &.add {
+        margin: 10px 0 0 0;
+      }
+    }
+  }
+}
+
+.subcontact {
+  padding: 0 0 100px 0;
+  dl {
+    padding-top: 0;
+  }
+}
+
+.mrg70 {
+  padding-top: 70px;
+}
+
+.mainbox .mainlist {
+  padding: 55px 35px 20px 24px;
+  background-color: #fff;
+  overflow: hidden;
+  width: 598px;
+  border-left: 1px solid #aeaeae;
+  border-right: 1px solid #aeaeae;
+  .special {
+    ul {}
+    li {
+      width: auto;
+    }
+  }
+  ul {
+    padding-top: 10px;
+    float: left;
+    width: 300px;
+    li {
+      background: image-url("bullet.gif") no-repeat 13px 10px;
+      padding: 5px 15px 5px 30px;
+      line-height: 1.4em;
+      font-size: 15px;
+    }
+  }
+}
+
+/*paragraph*/
+
+#paragraph {
+  a {
+    color: #4c4e46;
+  }
+  p {
+    line-height: 18px;
+    margin: 5px 0;
+  }
+  li {
+    list-style: disc;
+  }
+  .list {
+    margin-left: 30px;
+    li {
+      list-style: disc;
+      margin: 10px 0;
+    }
+  }
+  ol.list li {
+    list-style: decimal;
+  }
+  ul.sublist {
+    margin: 10px 0 0 30px;
+    li {
+      list-style: none;
+    }
+  }
+  ol.sublist {
+    margin: 10px 0 0 30px;
+    li {
+      list-style: lower-alpha;
+    }
+  }
+  .sublist {
+    .loweralpha {
+      list-style-type: lower-alpha;
+    }
+    li {
+      p {
+        margin: 0;
+        width: auto;
+        line-height: 17px;
+      }
+      margin-bottom: 8px;
+    }
+  }
+}
+
+/*Servicebox*/
+
+.servicebox {
+  margin: 7px 0 0 0;
+  width: 242px;
+  .title {
+    color: #b7cac9;
+    font-size: 14px;
+    font-weight: bold;
+    display: block;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+  }
+  ul li {
+    padding: 2px 20px;
+    color: #000;
+    a {
+      font-size: 11px;
+      color: #000;
+      &:hover, &.current {
+        color: #990000;
+      }
+    }
+  }
+}
+
+.service1 {
+  width: 100%;
+  background: image-url("bgService1Main.gif") repeat-y;
+}
+
+.service1top {
+  width: 100%;
+  background: image-url("bgService1Top.gif") no-repeat top left;
+}
+
+.service1btm {
+  width: 212px;
+  padding: 25px 0 50px 30px;
+  background: image-url("bgService1Btm.gif") no-repeat bottom left;
+}
+
+.service1 li {
+  background: image-url("bullet2.gif") no-repeat center left;
+}
+
+.service2 {
+  width: 100%;
+  background: image-url("bgService2Main.gif") repeat-y;
+}
+
+.service2top {
+  width: 100%;
+  background: image-url("bgService2Top.gif") no-repeat top left;
+}
+
+.service2btm {
+  width: 212px;
+  padding: 25px 0 50px 30px;
+  background: image-url("bgService2Btm.gif") no-repeat bottom left;
+}
+
+.service1 {
+  li {
+    background: image-url("bullet2.gif") no-repeat center left;
+  }
+  .title {
+    background: image-url("bgservicetitle1.gif") no-repeat bottom left;
+  }
+}
+
+.service2 .title {
+  background: image-url("bgservicetitle2.gif") no-repeat bottom left;
+}
