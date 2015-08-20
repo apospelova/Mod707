@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
 
     if @order.save
-      redirect_to root_path, notice: "Order created!"
+      render "create"
     else
       render "new"
     end

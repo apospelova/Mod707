@@ -16,6 +16,8 @@ ActiveAdmin.register Car do
     f.inputs "Map" do
       render "map"
     end
+
+    f.actions
   end
 
 end

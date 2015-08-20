@@ -8,4 +8,8 @@ class LineItem < ActiveRecord::Base
 
   accepts_nested_attributes_for :categories
 
+  def category_names
+    categories.pluck(:name).join(", ")
+  end
+
 end
