@@ -1,43 +1,45 @@
 <div class="mainlist">
   <div class="well infobox">
-    <form>
+    <%= form_for @order do |f| %>
       <div class="checkboxgroup">
         <label for="category">Categories</label>
-        <div class="checkbpxes">
         <% @categories.each do |category| %>
           <div class="checkbox">
-            <input type="checkbox" id="<%= category.name %>" value="<%= category.id%>">
-            <span><%= category.name%></span>
+            <label>
+              <input type="checkbox" id="<%= category.name %>" value="<%= category.id%>">
+              <%= category.name%>
+            </label>
           </div>
         <% end %>
-        </div>
       </div>
       <div class="form-group">
-        <label for="address">Address</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Address">
+        <%= f.label :address %>
+        <%= f.text_field :address, class: "form-control" %>
       </div>
       <div class="form-group">
-        <label for="phone">Phone</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Phone">
+        <%= f.label :phone %>
+        <%= f.text_field :phone, value: @user.phone, class: "form-control" %>
       </div>
-      <div class="radiogroup">
-        <label for="payment">Payment</label>
-        <div class="radiobuttons">
-          <div class="radiobutton">
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="cash" checked>
-            <span>Cash</span>
-          </div>
-          <div class="radiobutton">
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="bank" checked>
-            <span>Bank</span>
-          </div>
-          <div class="radiobutton">
-            <input type="radio" name="optionsRadios" id="optionsRadios1" value="online" checked>
-            <span>Online</span>
-          </div>
-        </div>
+      <label for="payment">Payment</label>
+      <div class="radio">
+        <label>
+          <%= f.radio_button :payment, 'Cash' %>
+          Cash
+        </label>
       </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>
+      <div class="radio">
+        <label>
+          <%= f.radio_button :payment, 'Bank' %>
+          Bank
+        </label>
+      </div>
+      <div class="radio">
+        <label>
+          <%= f.radio_button :payment, 'Online' %>
+          Online
+        </label>
+      </div>
+      <%= f.submit "Submit", class: "btn btn-default" %>
+    <% end %>
   </div>
 </div>
