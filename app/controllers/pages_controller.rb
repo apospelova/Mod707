@@ -4,7 +4,8 @@ class PagesController < ApplicationController
   end
 
   def show
-    @page = Page.find(params[:id])
+    @page = Page.find_by(slug: params[:slug])
+    redirect_to request.referer if @page.blank?
   end
 
 end

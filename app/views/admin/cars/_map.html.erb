@@ -1,0 +1,20 @@
+<div id="map" style="width: 92%; height: 500px; margin: 50px;"></div>
+
+<%= javascript_include_tag "https://maps.googleapis.com/maps/api/js?key=AIzaSyBY44Eg4QsCPnrBHDm8QZ2F-q0gA0y7mL0" %>
+<script type="text/javascript">
+  var $map = $("#map"),
+      lng = <%= resource.lng %>,
+      lat = <%= resource.lat %>,
+      default_options ={
+        center: { lat: lat, lng: lng },
+        zoom: 10
+      },
+      map = new google.maps.Map($map[0], default_options),
+      marker = new google.maps.Marker({
+        map: map,
+        position: { lat: lat, lng: lng },
+        labelContent: "<%= resource.driver_name %>",
+        labelAnchor: new google.maps.Point(50,30)
+      });
+
+</script>

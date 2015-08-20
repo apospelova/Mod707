@@ -1,0 +1,5 @@
+<% groups.each do |group| %>
+  <% group.line_items.each do |line_item| %>
+    <%= line_item.name %>
+  <% end %>
+<% end %>
