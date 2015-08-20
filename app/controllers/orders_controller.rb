@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
     @categories = Category.all
     @user = current_user
     @order = @user.orders.new
+    @order.line_items.build
   end
 
   def show
@@ -15,7 +16,7 @@ class OrdersController < ApplicationController
     @order = current_user.orders.build(order_params)
 
     if @order.save
-      redirect_to root_path, notice: "Order created!"
+      render "create"
     else
       render "new"
     end
@@ -30,6 +31,10 @@ class OrdersController < ApplicationController
   private
 
     def order_params
-      params.require(:order).permit(:category_ids, :address, :phone, :payment)
+      params.require(:order).permit(
+        :address, :phone, :payment, line_items_attributes: [
+          :name, :weight, :size, {category_ids: []}
+        ]
+      )
     end
 end

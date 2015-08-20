@@ -1,9 +1,11 @@
 $(document).on("page:change", function(){
+  var template = $("#new_lineitems").html(),
+      count = 0;
   $('#button_add_lineitem').on('click', function(e) {
-    var count = $(".lineitem").count;
-    var newTextBoxDiv = $(document.createElement('div')).attr("id", count+1);
-    newTextBoxDiv.after().html('<div class="form-group lineitem"><input type="text" class="form-control lineitem" placeholder="Text input" id="'+count+'"></div>');
-    newTextBoxDiv.appendTo(".form-group.lineitem").last();
+    var newTextBoxDiv = $(document.createElement('div')).addClass("next_elem");
+    newTextBoxDiv.after().html(template.replace('[' + count + ']', '[' + (count+1) + ']'));
+    newTextBoxDiv.appendTo("#new_lineitems");
+    count++;
 
   });
 });
