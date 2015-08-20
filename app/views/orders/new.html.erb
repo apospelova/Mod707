@@ -3,7 +3,7 @@
     <form>
       <div class="checkboxgroup">
         <label for="category">Categories</label>
-        <div class="checkbpxes">
+        <div class="checkboxes">
         <% @categories.each do |category| %>
           <div class="checkbox">
             <input type="checkbox" id="<%= category.name %>" value="<%= category.id%>">
