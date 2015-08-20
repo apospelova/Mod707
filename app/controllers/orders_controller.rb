@@ -23,7 +23,7 @@ class OrdersController < ApplicationController
     def order_params
       params.require(:order).permit(
         :address, :phone, :payment, line_items_attributes: [
-          :name, :weight, :size, {category_ids: []}
+          :name, :weight, :size, :total, {category_ids: []}
         ]
       )
     end

@@ -6,6 +6,7 @@ $(document).on("page:change", function(){
     newTextBoxDiv.after().html(template.replace('[' + count + ']', '[' + (count+1) + ']'));
     newTextBoxDiv.appendTo("#new_lineitems");
     count++;
-
   });
+
+  $("#new_order")
 });
