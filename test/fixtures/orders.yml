@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  payment: MyString
+  total: 9.99
+  address: MyString
+
+two:
+  payment: MyString
+  total: 9.99
+  address: MyString

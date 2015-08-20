@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150819163231) do
+ActiveRecord::Schema.define(version: 20150820094955) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -45,6 +45,53 @@ ActiveRecord::Schema.define(version: 20150819163231) do
 
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "multiplyer"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "category_lineitem_groups", force: :cascade do |t|
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "category_id"
+    t.integer  "line_item_group_id"
+  end
+
+  create_table "category_lineitems", force: :cascade do |t|
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "category_id"
+    t.integer  "line_item_id"
+  end
+
+  create_table "line_item_groups", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "order_id"
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.string   "name"
+    t.decimal  "price"
+    t.decimal  "weight"
+    t.string   "size"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.integer  "order_id"
+    t.integer  "line_item_group_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "payment"
+    t.decimal  "total"
+    t.string   "address"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
