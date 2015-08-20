@@ -14,5 +14,15 @@ ActiveAdmin.register Page do
   #   permitted
   # end
 
+  index do
+    column :id
+    column :title
+    column :content do |page|
+      truncate strip_tags(page.content)
+    end
+    column :slug
+    actions
+  end
+
 
 end
