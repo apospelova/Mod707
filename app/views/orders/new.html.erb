@@ -1,22 +1,8 @@
 <div class="mainlist">
-    <div class="well infobox">
-    <button type="button" class="btn btn-success" id="button_add_lineitem">Add</button>
-    <%= form_for @order do |f| %>
-      <div class="form-group lineitem">
-        <input type="text" class="form-control lineitem" placeholder="Text input">
-      </div>
+  <%= form_for @order do |f| %>
 
-      <div class="checkboxgroup">
-        <label for="category">Categories</label>
-        <% @categories.each do |category| %>
-          <div class="checkbox">
-            <label>
-              <%= f.check_box "category_ids", {}, category.id, nil %>
-              <%= category.name%>
-            </label>
-          </div>
-        <% end %>
-      </div>
+    <div class="well">
+      <h3>Order details</h3>
       <div class="form-group">
         <%= f.label :address %>
         <%= f.text_field :address, class: "form-control" %>
@@ -25,7 +11,48 @@
         <%= f.label :phone %>
         <%= f.text_field :phone, value: @user.phone, class: "form-control" %>
       </div>
-      <label for="payment">Payment</label>
+    </div>
+
+    <div class="well">
+      <h3>Items you want to send</h3>
+      <%= f.fields_for :line_items do |fli| %>
+        <div class="form-group">
+          <%= fli.label :name %>
+          <%= fli.text_field :name, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= fli.label :weight, "Weight(kg)" %>
+          <%= fli.text_field :weight, class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= fli.label :size, "Size(WxHxD)" %>
+          <%= fli.text_field :size, class: "form-control" %>
+        </div>
+
+        <h3>Categories</h3>
+        <% @categories.each do |category| %>
+          <div class="checkbox">
+            <label>
+              <%= fli.check_box "category_ids", {multiple: true}, category.id, nil %>
+              <%= category.name%>
+            </label>
+          </div>
+        <% end %>
+      <% end %>
+      <button type="button" class="btn btn-success" id="button_add_lineitem">Add More Items</button>
+    </div>
+
+    <div class="well">
+      <div class="form-group">
+        <%= f.label :total %>
+        <%= f.text_field :total, id: "total", class: "form-control", :disabled => true  %>
+      </div>
+    </div>
+
+    <div class="well">
+      <h3>Payment</h3>
       <div class="radio">
         <label>
           <%= f.radio_button :payment, 'Cash' %>
@@ -44,11 +71,7 @@
           Online
         </label>
       </div>
-      <div class="form-group">
-        <%= f.label :total %>
-        <%= f.text_field :total, id: "total", class: "form-control", :disabled => true  %>
-      </div>
-      <%= f.submit "Submit", class: "btn btn-default" %>
-    <% end %>
-  </div>
+    </div>
+    <%= f.submit "Submit", class: "btn btn-default" %>
+  <% end %>
 </div>
