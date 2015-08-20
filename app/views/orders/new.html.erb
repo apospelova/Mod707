@@ -1,6 +1,17 @@
 <div class="mainlist">
   <div class="well infobox">
     <form>
+      <div class="checkboxgroup">
+        <label for="category">Categories</label>
+        <div class="checkbpxes">
+        <% @categories.each do |category| %>
+          <div class="checkbox">
+            <input type="checkbox" id="<%= category.name %>" value="<%= category.name%>">
+            <span><%= category.name%></span>
+          </div>
+        <% end %>
+        </div>
+      </div>
       <div class="form-group">
         <label for="address">Address</label>
         <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Address">
@@ -16,7 +27,6 @@
             <input type="radio" name="optionsRadios" id="optionsRadios1" value="cash" checked>
             <span>Cash</span>
           </div>
-
           <div class="radiobutton">
             <input type="radio" name="optionsRadios" id="optionsRadios1" value="bank" checked>
             <span>Bank</span>
