@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820094955) do
+ActiveRecord::Schema.define(version: 20150820115244) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -48,9 +48,9 @@ ActiveRecord::Schema.define(version: 20150820094955) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.decimal  "multiplyer"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.float    "multiplayer"
   end
 
   create_table "category_lineitem_groups", force: :cascade do |t|
@@ -71,6 +71,8 @@ ActiveRecord::Schema.define(version: 20150820094955) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer  "order_id"
+    t.string   "track"
+    t.string   "status"
   end
 
   create_table "line_items", force: :cascade do |t|
