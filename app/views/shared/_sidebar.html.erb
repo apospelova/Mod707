@@ -3,26 +3,10 @@
       <div class="servicebox service2">
         <div class="service2top">
           <div class="service2btm">
-            <strong class="title">Service Areas</strong
-              <ul>
-                <li><h3>Wrexham</h3></li>
-                <li><h3>Mold</h3></li>
-                <li><h3>Oswestry</h3></li>
-                <li><h3>Llangollen</h3></li>
-                <li><h3>Malpas</h3></li>
-                <li><h3>Whitchurch</h3></li>
-                <li><h3>Welshpool</h3></li>
-                <li><h3>Chester</h3></li>
-                <li><h3>Ruthin</h3></li>
-                <li><h3>Conwy</h3></li>
-                <li><h3>Bangor</h3></li>
-                <li><h3>Shrewsbury</h3></li>
-                <li><h3>Rhyl</h3></li>
-                <li><h3>Telford</h3></li>
-                <li><h3>Bala</h3></li>
-                <li><h3>Denbigh</h3></li>
-                <li><h3>Newtown</h3></li>
-              </ul>
+            <strong class="title">Track your order</strong>
+             <%= form_tag('/orders/search', method: :get) do %>
+              <%= text_field_tag "Number"%>
+             <% end %>
             </div>
           </div>
         </div>

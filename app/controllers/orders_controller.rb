@@ -7,6 +7,10 @@ class OrdersController < ApplicationController
     @order = @user.orders.new
   end
 
+  def show
+    @order = Order.find(params[:id])
+  end
+
   def create
     @order = current_user.orders.build(order_params)
 
@@ -15,6 +19,12 @@ class OrdersController < ApplicationController
     else
       render "new"
     end
+  end
+
+  def search
+    number = params[:Number]
+    @order = Order.where(number: number).first
+    redirect_to order_path(@order.id)
   end
 
   private
