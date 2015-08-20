@@ -94,6 +94,7 @@ ActiveRecord::Schema.define(version: 20150820122530) do
     t.datetime "updated_at", null: false
     t.integer  "user_id"
     t.string   "phone"
+    t.integer  "distance"
   end
 
   create_table "pages", force: :cascade do |t|
