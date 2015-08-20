@@ -6,7 +6,7 @@
         <div class="checkbpxes">
         <% @categories.each do |category| %>
           <div class="checkbox">
-            <input type="checkbox" id="<%= category.name %>" value="<%= category.name%>">
+            <input type="checkbox" id="<%= category.name %>" value="<%= category.id%>">
             <span><%= category.name%></span>
           </div>
         <% end %>
